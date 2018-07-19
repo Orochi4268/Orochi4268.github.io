@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="Orochi4268&#39;s BLOG">
 <meta property="og:description" content="关于我: 一个智商情商负数的笨木头">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-19T20:57:23.111Z">
+<meta property="og:updated_time" content="2018-07-19T21:01:54.227Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about">
 <meta name="twitter:description" content="关于我: 一个智商情商负数的笨木头">
@@ -88,15 +88,6 @@
         
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
-    <section id="search">
-  <form>
-    <input type="text" class="search-input" id="search-input" placeholder="搜索...">
-  </form>
-  <div id="search-result"></div>
-  <p class="search-no-result">抱歉，没有符合您搜索条件的结果。请换其它关键词再试。</p>
-</section>
-
-  
   
 
   <div class="content" itemprop="articleBody">
@@ -140,35 +131,6 @@
 <script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
 <script src="/js/main.js"></script>
 <!-- search -->
-
-  <script src="/js/search.js"></script>
-  <script type="text/javascript">
-    var inputArea = document.querySelector("#search-input");
-    var $resultArea = $("#search-result");
-
-    inputArea.onfocus = function() {
-      var search_path = "search.xml";
-      if (search_path.length == 0) {
-        search_path = "search.xml";
-      }
-      var path = "/" + search_path;
-      searchFunc(path, 'search-input', 'search-result');
-    }
-
-    inputArea.onkeydown = function(){
-        if(event.keyCode==13){
-            return false
-        }
-    }
-
-    $resultArea.bind("DOMNodeRemoved DOMNodeInserted", function(e) {
-        if (!$(e.target).text()) {
-            $(".search-no-result").show(200);
-        } else {
-            $(".search-no-result").hide();
-        }
-    })
-  </script>
 
 <!-- Google Analytics -->
 
