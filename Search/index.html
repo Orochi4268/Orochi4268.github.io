@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+    <head>
     <!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,44 +14,46 @@
 <meta property="og:updated_time" content="2018-07-19T20:47:52.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Search">
-    
-    
         
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>Search</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- persian styles -->
-    
-      <link rel="stylesheet" href="/css/rtl.css">
-    
-    <!-- rss -->
-    
-    
-      <link rel="alternate" href="/enable" title="Orochi4268&#39;s BLOG" type="application/atom+xml" />
-    
+            
+                
+                    
+                            <link rel="shortcut icon" href="/images/favicon.ico">
+                            
+                                
+                                    
+                                        
+                                                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+                                                
+                                                    
+                                                        
+                                                            
+                                                                    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+                                                                    
+                                                                        
+                                                                            
+                                                                                <!-- title -->
+                                                                                <title>
+                                                                                    Search
+                                                                                </title>
+                                                                                <!-- styles -->
+                                                                                <link rel="stylesheet" href="/css/style.css">
+                                                                                    <!-- persian styles -->
+                                                                                    
+                                                                                        <link rel="stylesheet" href="/css/rtl.css">
+                                                                                            
+                                                                                                <!-- rss -->
+                                                                                                
+                                                                                                            
+                                                                                                                <link rel="alternate" href="/enable" title="Orochi4268&#39;s BLOG" type="application/atom+xml" />
+                                                                                                                
 </head>
 
-<body class="max-width mx-auto px3 ltr">
-    
-    <div class="content index my4">
-        
-          <header id="header">
+        <body class="max-width mx-auto px3 ltr">
+            
+                        <div class="content index my4">
+                            
+                                <header id="header">
   <a href="/">
   
     
@@ -82,8 +84,8 @@
   </div>
 </header>
 
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+                                    
+                                        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
   
     <section id="search">
   <form>
@@ -101,9 +103,9 @@
   </div>
 </article>
 
-    </div>
-    
-    <footer id="footer">
+                        </div>
+                        
+                                    <footer id="footer">
   <div class="footer-left">
     Copyright &copy; 2018 Orochi4268
   </div>
@@ -126,51 +128,48 @@
   </div>
 </footer>
 
-</body>
-</html>
-<!-- styles -->
+        </body>
+
+        </html>
+        <!-- styles -->
 <link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
 <link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
 
-<!-- jquery -->
+            <!-- jquery -->
 <script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-<!-- search -->
-
-  <script src="/js/search.js"></script>
-  <script type="text/javascript">
-    var inputArea = document.querySelector("#search-input");
-    var $resultArea = $("#search-result");
-
-    inputArea.onfocus = function() {
-      var search_path = "search.xml";
-      if (search_path.length == 0) {
-        search_path = "search.xml";
-      }
-      var path = "/" + search_path;
-      searchFunc(path, 'search-input', 'search-result');
-    }
-
-    inputArea.onkeydown = function(){
-        if(event.keyCode==13){
-            return false
-        }
-    }
-
-    $resultArea.bind("DOMNodeRemoved DOMNodeInserted", function(e) {
-        if (!$(e.target).text()) {
-            $(".search-no-result").show(200);
-        } else {
-            $(".search-no-result").hide();
-        }
-    })
-  </script>
-
-<!-- Google Analytics -->
-
-<!-- Baidu Analytics -->
-
-<!-- Disqus Comments -->
-
-
+    <script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+        <script src="/js/main.js"></script>
+            <!-- search -->
+            
+                <script src="/js/search.js"></script>
+                    <script type="text/javascript">
+                        var inputArea = document.querySelector("#search-input");
+                        var $resultArea = $("#search-result");
+                        inputArea.onfocus = function() {
+                            var search_path = "search.xml";
+                            if (search_path.length == 0) {
+                                search_path = "search.xml";
+                            }
+                            var path = "/" + search_path;
+                            searchFunc(path, 'search-input', 'search-result');
+                        }
+                        inputArea.onkeydown = function() {
+                            if (event.keyCode == 13) {
+                                return false
+                            }
+                        }
+                        $resultArea.bind("DOMNodeRemoved DOMNodeInserted", function(e) {
+                            if (!$(e.target).text()) {
+                                $(".search-no-result").show(200);
+                            } else {
+                                $(".search-no-result").hide();
+                            }
+                        })
+                    </script>
+                    
+                        <!-- Google Analytics -->
+                        
+                                <!-- Baidu Analytics -->
+                                
+                                        <!-- Disqus Comments -->
+                                        
