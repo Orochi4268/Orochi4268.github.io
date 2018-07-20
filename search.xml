@@ -3,6 +3,36 @@
   
     
     <entry>
+      <title>2018-7-19 Java编程思想学习</title>
+      <link href="/2018/07/20/%E9%9A%8F%E7%AC%94%E5%B0%8F%E8%AE%B0/"/>
+      <url>/2018/07/20/%E9%9A%8F%E7%AC%94%E5%B0%8F%E8%AE%B0/</url>
+      <content type="html"><![CDATA[<h3 id="最好不要用private-static可能造成内存泄漏"><a href="#最好不要用private-static可能造成内存泄漏" class="headerlink" title="最好不要用private static可能造成内存泄漏"></a>最好不要用private static可能造成内存泄漏</h3><hr><h3 id="java没有goto语句但是可以用-label-代替-但是不涉及到底层硬件编程最好别用"><a href="#java没有goto语句但是可以用-label-代替-但是不涉及到底层硬件编程最好别用" class="headerlink" title="java没有goto语句但是可以用 label: 代替 但是不涉及到底层硬件编程最好别用"></a>java没有goto语句但是可以用 label: 代替 但是不涉及到底层硬件编程最好别用</h3><hr><h2 id="区分java的重载的几种方法"><a href="#区分java的重载的几种方法" class="headerlink" title="区分java的重载的几种方法"></a>区分java的重载的几种方法</h2><p>1 通过方法所传参数的区别</p><p>2 通过方法所传参数的顺序</p><p>3 通过方法所传参数的返回值</p><hr><p><strong>Java中对象可能不被垃圾回收 垃圾回收并不等于析构</strong></p><p><strong>垃圾回收机制不等于所有对象都释放了内存</strong></p><p><strong>finalize我不太懂</strong></p><hr><p><strong>内部类</strong> <del>233</del><br>每个内部类都能独立地继承自一个接口的实现,所以无论外围类是否已经继承了某个接口的实现,对于内部类没有影响.</p><h2 id="内部类不能通过外部类继承后重新定义而覆盖"><a href="#内部类不能通过外部类继承后重新定义而覆盖" class="headerlink" title="内部类不能通过外部类继承后重新定义而覆盖"></a>内部类不能通过外部类继承后重新定义而覆盖</h2><p><strong>持有对象这一节得有空重看 再就是内部类</strong><del>313</del></p>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Java编程思想,学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>2018-7-20 Java编程思想学习</title>
+      <link href="/2018/07/20/Java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%E5%BC%82%E5%B8%B8%E7%AC%94%E8%AE%B0/"/>
+      <url>/2018/07/20/Java%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3%E5%BC%82%E5%B8%B8%E7%AC%94%E8%AE%B0/</url>
+      <content type="html"><![CDATA[<h2 id="Java异常的学习"><a href="#Java异常的学习" class="headerlink" title="Java异常的学习"></a>Java异常的学习</h2><h3 id="异常使用指南"><a href="#异常使用指南" class="headerlink" title="异常使用指南"></a>异常使用指南</h3><p><strong>在以下情况下使用异常</strong></p><ol><li>在恰当的级别处理问题</li><li>解决问题并且重新调用产生异常的方法</li><li>进行少许修补,然后绕过异常发生的地方继续执行</li><li>用别的数据进行计算,以代替方法预计会返回的值</li><li>把当前运行环境下能做的事情尽量做完,然后将相同的异常抛到更高层</li><li>把当前运行环境下能做的事情尽量昨晚,然后把不相同的异常抛到更高层</li><li>终止程序</li><li>进行简化</li><li>让类库和程序更加安全</li></ol>]]></content>
+      
+      
+        <tags>
+            
+            <tag> Java编程思想,学习笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>Hello World</title>
       <link href="/2018/07/20/hello-world/"/>
       <url>/2018/07/20/hello-world/</url>

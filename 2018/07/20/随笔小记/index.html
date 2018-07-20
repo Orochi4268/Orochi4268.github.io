@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang=zh>
+    <head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="最好不要用private static可能造成内存泄漏 java没有goto语句但是可以用 label: 代替 但是不涉及到底层硬件编程最好别用 区分java的重载的几种方法1 通过方法所传参数的区别 2 通过方法所传参数的顺序 3 通过方法所传参数的返回值  Java中对象可能不被垃圾回收 垃圾回收并不等于析构 垃圾回收机制不等于所有对象都释放了内存 finalize我不太懂  内部类 233每">
+<meta name="keywords" content="Java编程思想,学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018-7-19 Java编程思想学习">
+<meta property="og:url" content="https://orochi4268@.github.io/2018/07/20/随笔小记/index.html">
+<meta property="og:site_name" content="Orochi4268&#39;s BLOG">
+<meta property="og:description" content="最好不要用private static可能造成内存泄漏 java没有goto语句但是可以用 label: 代替 但是不涉及到底层硬件编程最好别用 区分java的重载的几种方法1 通过方法所传参数的区别 2 通过方法所传参数的顺序 3 通过方法所传参数的返回值  Java中对象可能不被垃圾回收 垃圾回收并不等于析构 垃圾回收机制不等于所有对象都释放了内存 finalize我不太懂  内部类 233每">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-20T01:57:57.951Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018-7-19 Java编程思想学习">
+<meta name="twitter:description" content="最好不要用private static可能造成内存泄漏 java没有goto语句但是可以用 label: 代替 但是不涉及到底层硬件编程最好别用 区分java的重载的几种方法1 通过方法所传参数的区别 2 通过方法所传参数的顺序 3 通过方法所传参数的返回值  Java中对象可能不被垃圾回收 垃圾回收并不等于析构 垃圾回收机制不等于所有对象都释放了内存 finalize我不太懂  内部类 233每">
+        
+            
+                
+                    
+                            <link rel="shortcut icon" href="/images/favicon.ico">
+                            
+                                
+                                    
+                                        
+                                                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+                                                
+                                                    
+                                                        
+                                                            
+                                                                    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+                                                                    
+                                                                        
+                                                                            
+                                                                                <!-- title -->
+                                                                                <title>
+                                                                                    2018-7-19 Java编程思想学习
+                                                                                </title>
+                                                                                <!-- styles -->
+                                                                                <link rel="stylesheet" href="/css/style.css">
+                                                                                    <!-- persian styles -->
+                                                                                    
+                                                                                        <link rel="stylesheet" href="/css/rtl.css">
+                                                                                            
+                                                                                                <!-- rss -->
+                                                                                                
+                                                                                                            
+                                                                                                                <link rel="alternate" href="/enable" title="Orochi4268&#39;s BLOG" type="application/atom+xml" />
+                                                                                                                
+</head>
+
+        <body class="max-width mx-auto px3 ltr">
+            
+                <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/Orochi4268">项目</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/07/20/Java编程思想异常笔记/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://orochi4268@.github.io/2018/07/20/随笔小记/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&text=2018-7-19 Java编程思想学习"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&title=2018-7-19 Java编程思想学习"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&is_video=false&description=2018-7-19 Java编程思想学习"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2018-7-19 Java编程思想学习&body=Check out this article: https://orochi4268@.github.io/2018/07/20/随笔小记/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&title=2018-7-19 Java编程思想学习"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&title=2018-7-19 Java编程思想学习"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&title=2018-7-19 Java编程思想学习"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&title=2018-7-19 Java编程思想学习"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&name=2018-7-19 Java编程思想学习&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#最好不要用private-static可能造成内存泄漏"><span class="toc-number">1.</span> <span class="toc-text">最好不要用private static可能造成内存泄漏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java没有goto语句但是可以用-label-代替-但是不涉及到底层硬件编程最好别用"><span class="toc-number">2.</span> <span class="toc-text">java没有goto语句但是可以用 label: 代替 但是不涉及到底层硬件编程最好别用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区分java的重载的几种方法"><span class="toc-number"></span> <span class="toc-text">区分java的重载的几种方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内部类不能通过外部类继承后重新定义而覆盖"><span class="toc-number"></span> <span class="toc-text">内部类不能通过外部类继承后重新定义而覆盖</span></a>
+    </div>
+  </span>
+</div>
+
+                    
+                        <div class="content index my4">
+                            
+                                        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        2018-7-19 Java编程思想学习
+    </h1>
+
+
+
+            <div class="meta">
+                <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Orochi4268's BLOG</span>
+                </span>
+                
+    <div class="postdate">
+        <time datetime="2018-07-20T01:57:57.749Z" itemprop="datePublished">2018-07-20</time>
+    </div>
+
+
+                    
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Java编程思想-学习笔记/">Java编程思想,学习笔记</a>
+    </div>
+
+
+            </div>
+    </header>
+    
+
+        <div class="content" itemprop="articleBody">
+            <h3 id="最好不要用private-static可能造成内存泄漏"><a href="#最好不要用private-static可能造成内存泄漏" class="headerlink" title="最好不要用private static可能造成内存泄漏"></a>最好不要用private static可能造成内存泄漏</h3><hr>
+<h3 id="java没有goto语句但是可以用-label-代替-但是不涉及到底层硬件编程最好别用"><a href="#java没有goto语句但是可以用-label-代替-但是不涉及到底层硬件编程最好别用" class="headerlink" title="java没有goto语句但是可以用 label: 代替 但是不涉及到底层硬件编程最好别用"></a>java没有goto语句但是可以用 label: 代替 但是不涉及到底层硬件编程最好别用</h3><hr>
+<h2 id="区分java的重载的几种方法"><a href="#区分java的重载的几种方法" class="headerlink" title="区分java的重载的几种方法"></a>区分java的重载的几种方法</h2><p>1 通过方法所传参数的区别</p>
+<p>2 通过方法所传参数的顺序</p>
+<p>3 通过方法所传参数的返回值</p>
+<hr>
+<p><strong>Java中对象可能不被垃圾回收 垃圾回收并不等于析构</strong></p>
+<p><strong>垃圾回收机制不等于所有对象都释放了内存</strong></p>
+<p><strong>finalize我不太懂</strong></p>
+<hr>
+<p><strong>内部类</strong> <del>233</del><br>每个内部类都能独立地继承自一个接口的实现,所以无论外围类是否已经继承了某个接口的实现,对于内部类没有影响.</p>
+<h2 id="内部类不能通过外部类继承后重新定义而覆盖"><a href="#内部类不能通过外部类继承后重新定义而覆盖" class="headerlink" title="内部类不能通过外部类继承后重新定义而覆盖"></a>内部类不能通过外部类继承后重新定义而覆盖</h2><p><strong>持有对象这一节得有空重看 再就是内部类</strong><del>313</del></p>
+
+        </div>
+</article>
+
+                        </div>
+                        
+                            <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/Orochi4268">项目</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#最好不要用private-static可能造成内存泄漏"><span class="toc-number">1.</span> <span class="toc-text">最好不要用private static可能造成内存泄漏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#java没有goto语句但是可以用-label-代替-但是不涉及到底层硬件编程最好别用"><span class="toc-number">2.</span> <span class="toc-text">java没有goto语句但是可以用 label: 代替 但是不涉及到底层硬件编程最好别用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#区分java的重载的几种方法"><span class="toc-number"></span> <span class="toc-text">区分java的重载的几种方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内部类不能通过外部类继承后重新定义而覆盖"><span class="toc-number"></span> <span class="toc-text">内部类不能通过外部类继承后重新定义而覆盖</span></a>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://orochi4268@.github.io/2018/07/20/随笔小记/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&text=2018-7-19 Java编程思想学习"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&title=2018-7-19 Java编程思想学习"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&is_video=false&description=2018-7-19 Java编程思想学习"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2018-7-19 Java编程思想学习&body=Check out this article: https://orochi4268@.github.io/2018/07/20/随笔小记/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&title=2018-7-19 Java编程思想学习"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&title=2018-7-19 Java编程思想学习"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&title=2018-7-19 Java编程思想学习"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&title=2018-7-19 Java编程思想学习"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://orochi4268@.github.io/2018/07/20/随笔小记/&name=2018-7-19 Java编程思想学习&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+                                
+                                    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Orochi4268
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/Orochi4268">项目</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+        </body>
+
+        </html>
+        <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+            <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+    <script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+        <script src="/js/main.js"></script>
+            <!-- search -->
+            
+                        <!-- Google Analytics -->
+                        
+                                <!-- Baidu Analytics -->
+                                
+                                        <!-- Disqus Comments -->
+                                        
