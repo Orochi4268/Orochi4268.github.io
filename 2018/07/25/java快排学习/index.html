@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="快速排列算法学习数学原理:  设要排序的数组是A[0]……A[N-1]，首先任意选取一个数据（通常选用第一个数据）作为关键数据，然后将所有比它小的数都放到它前面，所有比它大的数都放到它后面，这个过程称为一趟快速排序。一趟快速排序的算法是   　　1）设置两个变量I、J，排序开始的时候：I=0，J=N-1； 　　 　　2）以第一个数组元素作为关键数据，赋值给X，即 X=A[0]； 　　 　　3）从J">
+<meta name="keywords" content="学习笔记,java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018-7-25java快排学习">
+<meta property="og:url" content="https://orochi4268@.github.io/2018/07/25/java快排学习/index.html">
+<meta property="og:site_name" content="Orochi4268&#39;s BLOG">
+<meta property="og:description" content="快速排列算法学习数学原理:  设要排序的数组是A[0]……A[N-1]，首先任意选取一个数据（通常选用第一个数据）作为关键数据，然后将所有比它小的数都放到它前面，所有比它大的数都放到它后面，这个过程称为一趟快速排序。一趟快速排序的算法是   　　1）设置两个变量I、J，排序开始的时候：I=0，J=N-1； 　　 　　2）以第一个数组元素作为关键数据，赋值给X，即 X=A[0]； 　　 　　3）从J">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-25T07:05:14.715Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018-7-25java快排学习">
+<meta name="twitter:description" content="快速排列算法学习数学原理:  设要排序的数组是A[0]……A[N-1]，首先任意选取一个数据（通常选用第一个数据）作为关键数据，然后将所有比它小的数都放到它前面，所有比它大的数都放到它后面，这个过程称为一趟快速排序。一趟快速排序的算法是   　　1）设置两个变量I、J，排序开始的时候：I=0，J=N-1； 　　 　　2）以第一个数组元素作为关键数据，赋值给X，即 X=A[0]； 　　 　　3）从J">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>2018-7-25java快排学习</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/enable" title="Orochi4268&#39;s BLOG" type="application/atom+xml" />
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/Orochi4268">项目</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2018/07/20/随笔小记/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://orochi4268@.github.io/2018/07/25/java快排学习/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&text=2018-7-25java快排学习"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&title=2018-7-25java快排学习"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&is_video=false&description=2018-7-25java快排学习"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2018-7-25java快排学习&body=Check out this article: https://orochi4268@.github.io/2018/07/25/java快排学习/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&title=2018-7-25java快排学习"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&title=2018-7-25java快排学习"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&title=2018-7-25java快排学习"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&title=2018-7-25java快排学习"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&name=2018-7-25java快排学习&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速排列算法学习"><span class="toc-number">1.</span> <span class="toc-text">快速排列算法学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数学原理"><span class="toc-number">1.1.</span> <span class="toc-text">数学原理:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体例子"><span class="toc-number">2.</span> <span class="toc-text">具体例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先设置关键值X-我是将49看作关键"><span class="toc-number">2.0.1.</span> <span class="toc-text">首先设置关键值X 我是将49看作关键</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因为可以看到此时I-J"><span class="toc-number">2.1.</span> <span class="toc-text">因为可以看到此时I=J</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        2018-7-25java快排学习
+    </h1>
+
+
+
+            <div class="meta">
+                <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Orochi4268's BLOG</span>
+                </span>
+                
+    <div class="postdate">
+        <time datetime="2018-07-25T07:04:41.245Z" itemprop="datePublished">2018-07-25</time>
+    </div>
+
+
+                    
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/学习笔记-java/">学习笔记,java</a>
+    </div>
+
+
+            </div>
+    </header>
+    
+
+        <div class="content" itemprop="articleBody">
+            <h2 id="快速排列算法学习"><a href="#快速排列算法学习" class="headerlink" title="快速排列算法学习"></a>快速排列算法学习</h2><h3 id="数学原理"><a href="#数学原理" class="headerlink" title="数学原理:"></a>数学原理:</h3><blockquote>
+<blockquote>
+<p>设要排序的数组是A[0]……A[N-1]，首先任意选取一个数据（通常选用第一个数据）作为关键数据，然后将所有比它小的数都放到它前面，所有比它大的数都放到它后面，这个过程称为一趟快速排序。一趟快速排序的算法是</p>
+<blockquote>
+<p> 　　1）设置两个变量I、J，排序开始的时候：I=0，J=N-1； 　　<br> 　　2）以第一个数组元素作为关键数据，赋值给X，即 X=A[0]； 　　<br> 　　3）从J开始向前搜索，即由后开始向前搜索（J=J-1），找到第一个小于X的值，让该值与X交换； 　　4）从I开始向后搜索，即由前开始向后搜索（I=I+1），找到第一个大于X的值，让该值与X交换<br> 　　5）重复第3、4步，直到 I=J；</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="具体例子"><a href="#具体例子" class="headerlink" title="具体例子"></a>具体例子</h2><p><code>49(X) 38 65 97 76 13 27</code></p>
+<h4 id="首先设置关键值X-我是将49看作关键"><a href="#首先设置关键值X-我是将49看作关键" class="headerlink" title="首先设置关键值X 我是将49看作关键"></a>首先设置关键值X 我是将49看作关键</h4><p>经过第一次转换<br><code>27 38 65 97 76 13 49(X)</code><br><code>27 38 49(X) 97 76 13 65</code><br><code>27 38 13 97 76 49(X) 65</code><br><code>27 38 13 49(X) 76 97 65</code></p>
+<hr>
+<h3 id="因为可以看到此时I-J"><a href="#因为可以看到此时I-J" class="headerlink" title="因为可以看到此时I=J"></a>因为可以看到此时I=J</h3><p>所以将49隔离也就成了如下样子<br><code>27 38 13 |49| 76 97 65</code><br><strong>然后左右分别执行快排</strong><br>最后就得出了:<br><code>13 27 38 |49| 65 76 97</code><br>至此快排完成</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuickSortTest</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">qSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> head, <span class="keyword">int</span> tail)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(head &gt;= tail || arr == <span class="keyword">null</span> || arr.length &lt;= <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span>;<span class="comment">//设置特殊情况</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> i = head,j =tail, pivot = arr[(head + tail) / <span class="number">2</span>];</span><br><span class="line">        <span class="comment">//执行步骤3</span></span><br><span class="line">        <span class="keyword">while</span>(head &lt;= j)&#123;</span><br><span class="line">            <span class="keyword">while</span>(arr[i] &lt; pivot)&#123;</span><br><span class="line">                ++i;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(arr[j] &lt; pivot)&#123;</span><br><span class="line">                --j;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(i &lt; j)&#123;<span class="comment">//判断是否满足排序条件</span></span><br><span class="line">                <span class="keyword">int</span> t = arr[i];</span><br><span class="line">                arr[i] = arr[j];</span><br><span class="line">                arr[j] = t;</span><br><span class="line">                ++i;</span><br><span class="line">                --j;</span><br><span class="line"></span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(i == j)&#123;<span class="comment">//满足第一次排序算法的结束条件</span></span><br><span class="line">                ++i;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        qSort(arr, head, j);</span><br><span class="line">        qSort(arr, i, tail);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] array = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">49</span>, <span class="number">38</span>, <span class="number">65</span>, <span class="number">97</span>, <span class="number">76</span>, <span class="number">13</span>, <span class="number">27</span>&#125;;</span><br><span class="line">        qSort(array, <span class="number">0</span>,array.length -<span class="number">1</span>);</span><br><span class="line">        String out = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> digit : array) &#123;</span><br><span class="line">            out += (digit + <span class="string">","</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(out);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+</article>
+
+    <div class="blog-post-comments">
+        
+        
+        <div class="vcomment"></div>
+        
+    </div>
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/Orochi4268">项目</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#快速排列算法学习"><span class="toc-number">1.</span> <span class="toc-text">快速排列算法学习</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数学原理"><span class="toc-number">1.1.</span> <span class="toc-text">数学原理:</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体例子"><span class="toc-number">2.</span> <span class="toc-text">具体例子</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#首先设置关键值X-我是将49看作关键"><span class="toc-number">2.0.1.</span> <span class="toc-text">首先设置关键值X 我是将49看作关键</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因为可以看到此时I-J"><span class="toc-number">2.1.</span> <span class="toc-text">因为可以看到此时I=J</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://orochi4268@.github.io/2018/07/25/java快排学习/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&text=2018-7-25java快排学习"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&title=2018-7-25java快排学习"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&is_video=false&description=2018-7-25java快排学习"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2018-7-25java快排学习&body=Check out this article: https://orochi4268@.github.io/2018/07/25/java快排学习/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&title=2018-7-25java快排学习"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&title=2018-7-25java快排学习"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&title=2018-7-25java快排学习"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&title=2018-7-25java快排学习"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://orochi4268@.github.io/2018/07/25/java快排学习/&name=2018-7-25java快排学习&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2018 Orochi4268
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/Orochi4268">项目</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2e6da3c375c8a87f5b664cea6d4cb29c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'cactus-1';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<!-- Valine Comments -->
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+
+<script type="text/javascript">
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+    new Valine({
+        el: '.vcomment',
+        notify: false,
+        verify: false,
+        appId: "vKOhhXMUeoaHjuIHQAKIg81g-gzGzoHsz",
+        appKey: "felWezVEexbjhY8h1mcnUqst",
+        avatar:"mm",
+        placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+        guest_info:guest_info,
+        pageSize:"10"
+    })
+</script>
+
+
