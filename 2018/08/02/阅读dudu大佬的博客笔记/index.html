@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Orochi4268&#39;s BLOG">
 <meta property="og:description" content="今天因为偶然的情况学习起了 springboot了解了一些不同区别: 内部集成了tomcat maven文件pom简化 解决了依赖等的自行配置 热部署  阅读了http://tengj.top/2017/02/26/springboot1/#Spring-Boot%E7%B2%BE%E8%A6%81 大佬的博客后了解到 关于maven文件pom的简化:12345678910111213141516">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-02T08:21:26.520Z">
+<meta property="og:updated_time" content="2018-08-02T08:45:07.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018-8-2关于spring和springboot的初步学习">
 <meta name="twitter:description" content="今天因为偶然的情况学习起了 springboot了解了一些不同区别: 内部集成了tomcat maven文件pom简化 解决了依赖等的自行配置 热部署  阅读了http://tengj.top/2017/02/26/springboot1/#Spring-Boot%E7%B2%BE%E8%A6%81 大佬的博客后了解到 关于maven文件pom的简化:12345678910111213141516">
@@ -106,7 +106,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天因为偶然的情况学习起了-springboot了解了一些不同"><span class="toc-number">1.</span> <span class="toc-text">今天因为偶然的情况学习起了 springboot了解了一些不同</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#区别"><span class="toc-number">1.0.1.</span> <span class="toc-text">区别:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于maven文件pom的简化"><span class="toc-number">2.</span> <span class="toc-text">关于maven文件pom的简化:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如下是springboot的pom页面例子"><span class="toc-number">2.0.1.</span> <span class="toc-text">如下是springboot的pom页面例子</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天因为偶然的情况学习起了-springboot了解了一些不同"><span class="toc-number">1.</span> <span class="toc-text">今天因为偶然的情况学习起了 springboot了解了一些不同</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#区别"><span class="toc-number">1.0.1.</span> <span class="toc-text">区别:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于maven文件pom的简化"><span class="toc-number">2.</span> <span class="toc-text">关于maven文件pom的简化:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如下是springboot的pom页面例子"><span class="toc-number">2.0.1.</span> <span class="toc-text">如下是springboot的pom页面例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动SpringBoot的三种方法"><span class="toc-number">3.</span> <span class="toc-text">启动SpringBoot的三种方法</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -167,6 +167,19 @@
 </blockquote>
 <p>这个目录下查看到</p>
 <p>此文还没写完持续更新溜ε=ε=ε=┏(゜ロ゜;)┛</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br></pre></td></tr></table></figure>
+<p>这个注解的作用是开启自动配置是SpringBoot的核心注解</p>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@ResponseBody</span></span><br><span class="line"><span class="meta">@Controller</span></span><br></pre></td></tr></table></figure>
+<p>这三个注解的作用是注解类里面的方法都以json格式输出<br><strong>RestController = ResponseBody + Controller</strong></p>
+<h2 id="启动SpringBoot的三种方法"><a href="#启动SpringBoot的三种方法" class="headerlink" title="启动SpringBoot的三种方法"></a>启动SpringBoot的三种方法</h2><ol>
+<li>main方法启动</li>
+<li>使用命令<blockquote>
+<p>mvn spring-boot:run启动</p>
+</blockquote>
+</li>
+</ol>
+<p>3.运行<strong>mvn package</strong>打包 然后 <strong>java- jar</strong>启动</p>
 
         </div>
 </article>
@@ -201,7 +214,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天因为偶然的情况学习起了-springboot了解了一些不同"><span class="toc-number">1.</span> <span class="toc-text">今天因为偶然的情况学习起了 springboot了解了一些不同</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#区别"><span class="toc-number">1.0.1.</span> <span class="toc-text">区别:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于maven文件pom的简化"><span class="toc-number">2.</span> <span class="toc-text">关于maven文件pom的简化:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如下是springboot的pom页面例子"><span class="toc-number">2.0.1.</span> <span class="toc-text">如下是springboot的pom页面例子</span></a></li></ol></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#今天因为偶然的情况学习起了-springboot了解了一些不同"><span class="toc-number">1.</span> <span class="toc-text">今天因为偶然的情况学习起了 springboot了解了一些不同</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#区别"><span class="toc-number">1.0.1.</span> <span class="toc-text">区别:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于maven文件pom的简化"><span class="toc-number">2.</span> <span class="toc-text">关于maven文件pom的简化:</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如下是springboot的pom页面例子"><span class="toc-number">2.0.1.</span> <span class="toc-text">如下是springboot的pom页面例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动SpringBoot的三种方法"><span class="toc-number">3.</span> <span class="toc-text">启动SpringBoot的三种方法</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
