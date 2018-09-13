@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="Orochi4268&#39;s BLOG">
 <meta property="og:description" content="最好不要用private static可能造成内存泄漏 java没有goto语句但是可以用 label: 代替 但是不涉及到底层硬件编程最好别用 区分java的重载的几种方法1 通过方法所传参数的区别 2 通过方法所传参数的顺序 3 通过方法所传参数的返回值  Java中对象可能不被垃圾回收 垃圾回收并不等于析构 垃圾回收机制不等于所有对象都释放了内存 finalize我不太懂  内部类 233每">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-07-20T01:57:57.951Z">
+<meta property="og:updated_time" content="2018-09-13T01:21:35.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018-7-19 Java编程思想学习">
 <meta name="twitter:description" content="最好不要用private static可能造成内存泄漏 java没有goto语句但是可以用 label: 代替 但是不涉及到底层硬件编程最好别用 区分java的重载的几种方法1 通过方法所传参数的区别 2 通过方法所传参数的顺序 3 通过方法所传参数的返回值  Java中对象可能不被垃圾回收 垃圾回收并不等于析构 垃圾回收机制不等于所有对象都释放了内存 finalize我不太懂  内部类 233每">
@@ -159,6 +159,7 @@
 <hr>
 <p><strong>内部类</strong> <del>233</del><br>每个内部类都能独立地继承自一个接口的实现,所以无论外围类是否已经继承了某个接口的实现,对于内部类没有影响.</p>
 <h2 id="内部类不能通过外部类继承后重新定义而覆盖"><a href="#内部类不能通过外部类继承后重新定义而覆盖" class="headerlink" title="内部类不能通过外部类继承后重新定义而覆盖"></a>内部类不能通过外部类继承后重新定义而覆盖</h2><p><strong>持有对象这一节得有空重看 再就是内部类</strong><del>313</del></p>
+<p><strong>对于java的List和String转换传值</strong><br>如果你有一个List但是你需要返回的是String的时候<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt;a= <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">a.add(你要添加的操作.toString());</span><br></pre></td></tr></table></figure></p>
 
         </div>
 </article>
