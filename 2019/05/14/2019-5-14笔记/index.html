@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang=zh>
+    <head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="作者：匿名用户链接：https://www.zhihu.com/question/20570393/answer/111686024来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   一般用string == null || string.trim().length() == 0来判断一个字符串是否为空，在各大工具类中都含有相应的工具方法，像apache的com">
+<meta name="keywords" content="java,学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2019-5-14笔记">
+<meta property="og:url" content="https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/index.html">
+<meta property="og:site_name" content="Orochi4268&#39;s BLOG">
+<meta property="og:description" content="作者：匿名用户链接：https://www.zhihu.com/question/20570393/answer/111686024来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   一般用string == null || string.trim().length() == 0来判断一个字符串是否为空，在各大工具类中都含有相应的工具方法，像apache的com">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-02T08:29:40.080Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2019-5-14笔记">
+<meta name="twitter:description" content="作者：匿名用户链接：https://www.zhihu.com/question/20570393/answer/111686024来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。   一般用string == null || string.trim().length() == 0来判断一个字符串是否为空，在各大工具类中都含有相应的工具方法，像apache的com">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>2019-5-14笔记</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+      <link rel="alternate" href="/enable" title="Orochi4268&#39;s BLOG" type="application/atom+xml" />
+    
+</head>
+
+
+        <body class="max-width mx-auto px3 ltr">
+            
+                <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/Orochi4268">项目</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/07/02/2019-7-2 windows小众软件和idea插件美化分享指南/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/05/13/2019-5-13集合类操作经验优化总结/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&text=2019-5-14笔记"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&title=2019-5-14笔记"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&is_video=false&description=2019-5-14笔记"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2019-5-14笔记&body=Check out this article: https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&title=2019-5-14笔记"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&title=2019-5-14笔记"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&title=2019-5-14笔记"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&title=2019-5-14笔记"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&name=2019-5-14笔记&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#阅读水电缴费模块研究它的代码业务逻辑-PaymentRecordBiz"><span class="toc-number">1.</span> <span class="toc-text">阅读水电缴费模块研究它的代码业务逻辑(PaymentRecordBiz)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#缴费列表清单模块"><span class="toc-number">1.0.1.</span> <span class="toc-text">缴费列表清单模块</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+                    
+                        <div class="content index my4">
+                            
+                                        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        2019-5-14笔记
+    </h1>
+
+
+
+            <div class="meta">
+                <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Orochi4268's BLOG</span>
+                </span>
+                
+    <div class="postdate">
+        <time datetime="2019-05-14T02:04:22.769Z" itemprop="datePublished">2019-05-14</time>
+    </div>
+
+
+                    
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/java-学习笔记/">java,学习笔记</a>
+    </div>
+
+
+            </div>
+    </header>
+    
+
+        <div class="content" itemprop="articleBody">
+            <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><blockquote>
+<blockquote>
+<p>作者：匿名用户<br>链接：<a href="https://www.zhihu.com/question/20570393/answer/111686024" target="_blank" rel="noopener">https://www.zhihu.com/question/20570393/answer/111686024</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+</blockquote>
+</blockquote>
+<p>一般用string == null || string.trim().length() == 0来判断一个字符串是否为空，在各大工具类中都含有相应的工具方法，像apache的common包、google的guava。实现稍有差别，我们可以根据实际的业务场景，选择合适的方法。一般来说，blank会比empty更严格。<br>Apache：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Checks if a CharSequence is whitespace, empty ("") or null.&lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * &lt;pre&gt;</span></span><br><span class="line"><span class="comment">     * StringUtils.isBlank(null)      = true</span></span><br><span class="line"><span class="comment">     * StringUtils.isBlank("")        = true</span></span><br><span class="line"><span class="comment">     * StringUtils.isBlank(" ")       = true</span></span><br><span class="line"><span class="comment">     * StringUtils.isBlank("bob")     = false</span></span><br><span class="line"><span class="comment">     * StringUtils.isBlank("  bob  ") = false</span></span><br><span class="line"><span class="comment">     * &lt;/pre&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> cs  the CharSequence to check, may be null</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> &#123;<span class="doctag">@code</span> true&#125; if the CharSequence is null, empty or whitespace</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 2.0</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 3.0 Changed signature from isBlank(String) to isBlank(CharSequence)</span></span><br><span class="line"><span class="comment">    </span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isBlank</span><span class="params">(<span class="keyword">final</span> CharSequence cs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> strLen;</span><br><span class="line">        <span class="keyword">if</span> (cs == <span class="keyword">null</span> || (strLen = cs.length()) == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; strLen; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (Character.isWhitespace(cs.charAt(i)) == <span class="keyword">false</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;   <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;Checks if a CharSequence is empty ("") or null.&lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * &lt;pre&gt;</span></span><br><span class="line"><span class="comment">     * StringUtils.isEmpty(null)      = true</span></span><br><span class="line"><span class="comment">     * StringUtils.isEmpty("")        = true</span></span><br><span class="line"><span class="comment">     * StringUtils.isEmpty(" ")       = false</span></span><br><span class="line"><span class="comment">     * StringUtils.isEmpty("bob")     = false</span></span><br><span class="line"><span class="comment">     * StringUtils.isEmpty("  bob  ") = false</span></span><br><span class="line"><span class="comment">     * &lt;/pre&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * &lt;p&gt;<span class="doctag">NOTE:</span> This method changed in Lang version 2.0.</span></span><br><span class="line"><span class="comment">     * It no longer trims the CharSequence.</span></span><br><span class="line"><span class="comment">     * That functionality is available in isBlank().&lt;/p&gt;</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> cs  the CharSequence to check, may be null</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> &#123;<span class="doctag">@code</span> true&#125; if the CharSequence is empty or null</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@since</span> 3.0 Changed signature from isEmpty(String) to isEmpty(CharSequence)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">(<span class="keyword">final</span> CharSequence cs)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> cs == <span class="keyword">null</span> || cs.length() == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>如果是安卓开发则可以用谷歌封装好的静态方法TextUtils.isEmpty(…)来判断，下面是源码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns true if the string is null or 0-length.</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> str the string to be examined</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> true if str is null or zero length</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">(CharSequence str)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (str == <span class="keyword">null</span> || str.length() == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br></pre></td></tr></table></figure></p>
+<pre><code>}编辑于 2018-01-30​赞同 10​​添加评论​分享​收藏​感谢​收起​悠悠千反田莫忘来时路，不负少年心1 人赞同了该回答 StringUtils.isBlank(null)      = true
+</code></pre><blockquote>
+<blockquote>
+<blockquote>
+<p>StringUtils.isBlank(“”)        = true<br>StringUtils.isBlank(“ “)       = true<br>StringUtils.isBlank(“bob”)     = false<br>StringUtils.isBlank(“  bob  “) = false<br>StringUtils.isBlank(null)      = true<br>StringUtils.isBlank(“”)        = true<br>StringUtils.isBlank(“ “)       = true<br>StringUtils.isBlank(“bob”)     = false<br>StringUtils.isBlank(“  bob  “) = false</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>其实可以根据自己的要求选择合适的判断方法</p>
+<h2 id="阅读水电缴费模块研究它的代码业务逻辑-PaymentRecordBiz"><a href="#阅读水电缴费模块研究它的代码业务逻辑-PaymentRecordBiz" class="headerlink" title="阅读水电缴费模块研究它的代码业务逻辑(PaymentRecordBiz)"></a>阅读水电缴费模块研究它的代码业务逻辑(PaymentRecordBiz)</h2><h4 id="缴费列表清单模块"><a href="#缴费列表清单模块" class="headerlink" title="缴费列表清单模块"></a>缴费列表清单模块</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram;</span><br><span class="line">   代码开始-&gt;&gt;同步数据:分别查询相关的水电缴费信息</span><br><span class="line">   同步数据-&gt;&gt;获取所有企业:获取所有企业</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram;</span><br><span class="line">同步数据-&gt;&gt;插入缴费记录:插入水费缴费记录</span><br><span class="line">   插入缴费记录-&gt;&gt;缴费记录插入:所有企业企业类型水表本年每月用水量电费缴费记录</span><br><span class="line">   插入缴费记录-&gt;&gt;缴费记录插入:所有企业公摊类型水表本年每月用水量</span><br><span class="line">   插入缴费记录-&gt;&gt;缴费记录插入:所有水表起始日期的企业</span><br><span class="line">   插入缴费记录-&gt;&gt;缴费记录插入:水表规则</span><br><span class="line">   插入缴费记录-&gt;&gt;缴费记录插入:企业每月用水量</span><br><span class="line">   同步数据-&gt;&gt;插入缴费记录:插入</span><br><span class="line">   插入缴费记录--&gt;缴费记录插入:所有企业企业类型电表本年每月用电量</span><br><span class="line">   插入缴费记录--&gt;缴费记录插入:所有企业公摊类型电表本年每月用电量</span><br><span class="line">   插入缴费记录--&gt;缴费记录插入:所有电表起始日期的企业</span><br><span class="line">   插入缴费记录--&gt;缴费记录插入:电表规则</span><br><span class="line">   插入缴费记录--&gt;缴费记录插入:企业每月用电量</span><br></pre></td></tr></table></figure>
+<p>需求:<br>一个学校总人数一个学校实时在校人数不再返回正常的点</p>
+
+        </div>
+</article>
+
+    <div class="blog-post-comments">
+        
+        
+        <div class="vcomment"></div>
+        
+    </div>
+
+
+                        </div>
+                        
+                            <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/Orochi4268">项目</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#阅读水电缴费模块研究它的代码业务逻辑-PaymentRecordBiz"><span class="toc-number">1.</span> <span class="toc-text">阅读水电缴费模块研究它的代码业务逻辑(PaymentRecordBiz)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#缴费列表清单模块"><span class="toc-number">1.0.1.</span> <span class="toc-text">缴费列表清单模块</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&text=2019-5-14笔记"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&title=2019-5-14笔记"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&is_video=false&description=2019-5-14笔记"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2019-5-14笔记&body=Check out this article: https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&title=2019-5-14笔记"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&title=2019-5-14笔记"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&title=2019-5-14笔记"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&title=2019-5-14笔记"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://orochi4268@.github.io/2019/05/14/2019-5-14笔记/&name=2019-5-14笔记&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+                                
+                                    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Orochi4268
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="https://github.com/Orochi4268">项目</a></li>
+         
+          <li><a href="/Search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+        <script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/z16.model.json"},"display":{"postion":"right"},"width":150,"height":150,"mobile":{"show":true,"width":50,"height":50,"bottom":30},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+
+        </html>
+        <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/fontawesome-all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+            <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Baidu Analytics -->
+
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2e6da3c375c8a87f5b664cea6d4cb29c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+<!-- Disqus Comments -->
+
+    <script type="text/javascript">
+        var disqus_shortname = 'cactus-1';
+        (function(){
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }());
+    </script>
+
+
+<!-- Valine Comments -->
+
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+
+<script type="text/javascript">
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+      return GUEST_INFO.indexOf(item) > -1
+    });
+    guest_info = guest_info.length == 0 ? GUEST_INFO :guest_info;
+    new Valine({
+        el: '.vcomment',
+        notify: false,
+        verify: false,
+        appId: "vKOhhXMUeoaHjuIHQAKIg81g-gzGzoHsz",
+        appKey: "felWezVEexbjhY8h1mcnUqst",
+        avatar:"mm",
+        placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+        guest_info:guest_info,
+        pageSize:"10"
+    })
+</script>
+
+
+                <!-- 页面点击小红心 -->
+                <script type="text/javascript" src="/js/src/love.js"></script>
